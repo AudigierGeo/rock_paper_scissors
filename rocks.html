@@ -8,6 +8,9 @@
 <body>
     <script>
 
+    let humanScore = 0;
+    let computerScore = 0;
+
         function getComputerChoice(){
             function getRandomInt(max) {
              return Math.floor(Math.random() * max);
@@ -15,33 +18,70 @@
             let randomInt = (getRandomInt(3));
 
             if (randomInt == 0){
-                let computerChoice = "Rock";
+                let computerChoice = "rock";
                 return computerChoice;
             }
                 else if (randomInt == 1){
-                    let computerChoice = "Paper";
+                    let computerChoice = "paper";
                     return computerChoice;
                 }
                 else if (randomInt == 2){ 
-                    let computerChoice = "Scissors";
+                    let computerChoice = "scissors";
                     return computerChoice;
                 }
-            
-
-                
         }
         function getHumanChoice(){
-            let humanChoice = prompt("Make your choice:")
-            //console.log(humanChoice);
+            let inputChoice = prompt("Make your choice:")
+            let humanChoice = inputChoice.toLowerCase();
             return humanChoice;
-            
         }
-        console.log("Computer: " + getComputerChoice());
-        console.log("Human: "+ getHumanChoice());
-        
-        let humanScore = 0;
-        let computerScore = 0;
 
+
+        function playRound(humanChoice, computerChoice){
+                    //console.log("Computer: " + getComputerChoice());
+                    //console.log("Human: "+ getHumanChoice());
+            let humanGo = getHumanChoice();
+            let computerGo = getComputerChoice();
+            console.log(humanGo);
+            console.log(computerGo);
+            if (computerGo == "rock" && humanGo == "scissors"){
+                let winner = "computer";
+                computerScore ++;
+                return winner;
+                console.log(winner);
+            }
+            else if (computerGo == "paper" && humanGo == "rock"){
+                let winner = "computer";
+                console.log(winner);
+            }
+            else if (computerGo == "scissors" && humanGo == "paper"){
+                let winner = "computer";
+                console.log(winner);
+            }
+            else if (computerGo == "rock" && humanGo == "paper"){
+                let winner = "human";
+                console.log(winner);
+            }
+            else if (computerGo == "paper" && humanGo == "scissors"){
+                let winner = "human";
+                console.log(winner);
+            }
+            else if (computerGo == "scissors" && humanGo == "rock"){
+                let winner = "human";
+                console.log(winner);
+            }
+            else if (computerGo == humanGo){
+                let winner = "draw again!"
+                console.log(winner);
+            }
+        }
+    
+    let currentScore = computerScore + ":" + humanScore;
+
+
+
+    playRound();
+    console.log(currentScore);
 
 
     </script>
