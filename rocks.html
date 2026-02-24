@@ -10,6 +10,7 @@
 
     let humanScore = 0;
     let computerScore = 0;
+    let rounds = 4;
 
         function getComputerChoice(){
             function getRandomInt(max) {
@@ -52,22 +53,27 @@
             }
             else if (computerGo == "paper" && humanGo == "rock"){
                 let winner = "computer";
+                computerScore ++;
                 console.log(winner);
             }
             else if (computerGo == "scissors" && humanGo == "paper"){
                 let winner = "computer";
+                computerScore ++;
                 console.log(winner);
             }
             else if (computerGo == "rock" && humanGo == "paper"){
                 let winner = "human";
+                humanScore ++;
                 console.log(winner);
             }
             else if (computerGo == "paper" && humanGo == "scissors"){
                 let winner = "human";
+                humanScore ++;
                 console.log(winner);
             }
             else if (computerGo == "scissors" && humanGo == "rock"){
                 let winner = "human";
+                humanScore ++;
                 console.log(winner);
             }
             else if (computerGo == humanGo){
@@ -75,12 +81,17 @@
                 console.log(winner);
             }
         }
-    
-    let currentScore = computerScore + ":" + humanScore;
+        function playGame(){
+            while (rounds >=0){
+                rounds--;
+                playRound();
+            }
+            
 
-
-
-    playRound();
+        }
+ 
+    playGame();
+    let currentScore = "computer " + computerScore + " : " + "you " + humanScore;
     console.log(currentScore);
 
 
